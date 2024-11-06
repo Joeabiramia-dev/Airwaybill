@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airwaybill Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <style>
+        .airwaybill {
+            width: 300px;
+            border: 1px solid #000;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .icon {
+            width: 50px;
+            margin-bottom: 15px;
+        }
+        .qr-code {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="airwaybill">
+    <img src="images.png" alt="Icon" class="icon" />
+    <hr>
+    <h2>Airwaybill</h2>
+    <p><strong>Sender:</strong> <span id="sender-name"></span></p>
+    <p><strong>Recipient:</strong> <span id="recipient-name"></span></p>
+    <p><strong>Address:</strong> <span id="recipient-address"></span></p>
+    <p><strong>City:</strong> <span id="recipient-city"></span></p>
+    <p><strong>Country:</strong> <span id="recipient-country"></span></p>
+
+    <div class="qr-code">
+        <canvas id="qr-code"></canvas>
+    </div>
+</div>
+
+<script src="airwaybill.js"></script>
+</body>
+</html>

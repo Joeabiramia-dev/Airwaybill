@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px 12px; border: 1px solid #ddd; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+
+<h2>Items List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody id="items-table">
+        <!-- Items will be dynamically inserted here -->
+    </tbody>
+</table>
+
+<script>
+    // Get URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const items = JSON.parse(decodeURIComponent(urlParams.get("items")));
+
+    // Populate table
+    const tableBody = document.getElementById("items-table");
+    items.forEach((item, index) => {
+        const row = document.createElement("tr");
+        
+        // Assume each item string has a format like "Item X - Description"
+        const [itemName, description] = item.split(" - ");
+        
+        const itemCell = document.createElement("td");
+        itemCell.textContent = itemName;
+
+        const descCell = document.createElement("td");
+        descCell.textContent = description || "No Description";
+
+        row.appendChild(itemCell);
+        row.appendChild(descCell);
+        tableBody.appendChild(row);
+    });
+</script>
+
+</body>
+</html>
